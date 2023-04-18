@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,
+        tr,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        td,
+        li {
+            padding: 1px 5px;
+        }
+    </style>
+</head>
+
+<body style="font-family: Calibri, sans-serif; margin: 5% 10%;">
+    {% for projectDepartments in projectDepartments %}
+    <div>
+        <p style="text-align: right;">Date: <span>10-Apr-2023</span></p>
+        <h3 style="text-align: center;"><b>{{projectDepartments.title}}</b></h3>
+        <h6 style="text-align: center;">- Weekly Report -</h6>
+        <hr style="height: 2px; border-width: 0; color: gray; background-color: gray;">
+    </div>
+    <section>
+
+        {% for projects in projects %}
+        {% if projects.projectDepartments.id == projectDepartments.id %}
+        <div>
+            <h4 style="font-weight: 200; margin:50px 0px ;">Project Name: <span><b>{{projects.title}} - Ahnas,Suhail</b></span></h4>
+            <table style="width: 100%; margin-top: 20px; padding: 50px;">
+                <tr>
+                    <td>Main Highlights/Achievements</td>
+                    <td>
+                        <ul style="list-style-type: decimal;">
+                            <li>Lorem 1</li>
+                            <li>Lorem 2</li>
+                            <li>Lorem 3</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Next Planned Delivery date/Scope</td>
+                    <td>
+                        <ul style="list-style-type: decimal;">
+                            <li>Lorem 1</li>
+                            <li>Lorem 2</li>
+                            <li>Lorem 3</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Risks/Blockers</td>
+                    <td>
+                        <ul style="list-style-type: decimal;">
+                            <li>Lorem 1</li>
+                            <li>Lorem 2</li>
+                            <li>Lorem 3</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+
+            <h5>Scheduled Absences/Holidays for the coming week: Divya - 10th April 2022</h5>
+            <hr>
+        </div>
+    </section>
+    {% endif %}
+    {% endfor %}
+    {% endfor %}
+</body>
+
+</html>
