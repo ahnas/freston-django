@@ -36,5 +36,37 @@ class Task(models.Model):
     def __str__(self):
         return str(self.task)
 
+class PlannedScope(models.Model):
+    project = models.ForeignKey("Project", on_delete=models.CASCADE)
+    details = models.CharField(max_length=1000,unique=True)
+
+    class Meta:
+        verbose_name = ('Next Planned Delivery date/Scope')
+        verbose_name_plural = ('Next Planned Delivery date/Scope')
+
+    def __str__(self):
+        return str(self.details)
+
+class Risk(models.Model):
+    project = models.ForeignKey("Project", on_delete=models.CASCADE)
+    risk = models.CharField(max_length=1000,unique=True)
+
+    class Meta:
+        verbose_name = ('Risks/Blockers')
+        verbose_name_plural = ('Risks/Blockers')
+
+    def __str__(self):
+        return str(self.risk)
+
+class PlannedLeave(models.Model):
+    project = models.ForeignKey("Project", on_delete=models.CASCADE)
+    member = models.ForeignKey("ProjectMember",unique=True, on_delete=models.CASCADE)
+    date = models.CharField(max_length=1000)
+
+    def __str__(self):
+        return str(self.member)
+
+
+
 
 

@@ -59,9 +59,11 @@
                     <td>Next Planned Delivery date/Scope</td>
                     <td>
                         <ul style="list-style-type: decimal;">
-                            <li>Lorem 1</li>
-                            <li>Lorem 2</li>
-                            <li>Lorem 3</li>
+                            {% for plannedScope in plannedScope %}
+                            {% if plannedScope.project.id == projects.id %}
+                            <li>{{plannedScope.details}}</li>
+                            {% endif %}
+                            {% endfor %}
                         </ul>
                     </td>
                 </tr>
@@ -69,15 +71,23 @@
                     <td>Risks/Blockers</td>
                     <td>
                         <ul style="list-style-type: decimal;">
-                            <li>Lorem 1</li>
-                            <li>Lorem 2</li>
-                            <li>Lorem 3</li>
+                            {% for risk in risk %}
+                            {% if risk.project.id == projects.id %}
+                            <li>{{risk.risk}}</li>
+                            {% endif %}
+                            {% endfor %}
                         </ul>
                     </td>
                 </tr>
             </table>
 
-            <h5>Scheduled Absences/Holidays for the coming week: Divya - 10th April 2022</h5>
+            <h4>Scheduled Absences/Holidays for the coming week:
+                {% for plannedLeave in plannedLeave %}
+                {% if plannedLeave.project.id == projects.id %}
+                <span style="color:rgb(255, 0, 0)">{{plannedLeave.member}} - {{plannedLeave.date}},</span>
+                {% endif %}
+                {% endfor %}
+            </h4>
             <hr>
         </div>
     </section>
