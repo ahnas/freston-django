@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import ProjectDepartment,Project,ProjectMember
+from .models import ProjectDepartment,Project,ProjectMember,Task
 
 
 # Register your models here.
@@ -14,3 +14,7 @@ class ProjectAdmin(admin.ModelAdmin):
 @admin.register(ProjectMember)
 class ProjectMemberAdmin(admin.ModelAdmin):
     list_display = ('member','project')
+
+@admin.register(Task)
+class TaskAdmin(admin.ModelAdmin):
+    list_display = ('task','project')

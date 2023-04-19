@@ -25,3 +25,16 @@ class ProjectMember(models.Model):
     def __str__(self):
         return str(self.member)
 
+class Task(models.Model):
+    project = models.ForeignKey("Project", on_delete=models.CASCADE)
+    task = models.CharField(max_length=1000,unique=True)
+
+    class Meta:
+        verbose_name = ('Main Highlights/Achievements')
+        verbose_name_plural = ('Main Highlights/Achievements')
+
+    def __str__(self):
+        return str(self.task)
+
+
+
