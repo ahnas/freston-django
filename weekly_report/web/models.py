@@ -16,4 +16,12 @@ class Project(models.Model):
     title = models.CharField(max_length=120,unique=True)
 
     def __str__(self):
-        return str(self.projectDepartments.title)
+        return str(self.title)
+
+class ProjectMember(models.Model):
+    project = models.ForeignKey("Project", on_delete=models.CASCADE)
+    member = models.CharField(max_length=120,unique=True)
+
+    def __str__(self):
+        return str(self.member)
+

@@ -4,15 +4,16 @@ from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 import json
 
-from .models import ProjectDepartment,Project
+from .models import ProjectDepartment,Project,ProjectMember
 
 def index(request):
     projectDepartments = ProjectDepartment.objects.all()
-    obj = Project.objects.filter()
     projects = Project.objects.all()
+    projectmembers = ProjectMember.objects.all()
     context = {
         "is_index" : True,
         "projectDepartments" : projectDepartments,
         "projects" : projects,
+        "projectmembers": projectmembers,
     }
     return render(request, 'index.html',context)

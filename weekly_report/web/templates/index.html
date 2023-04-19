@@ -33,8 +33,15 @@
 
         {% for projects in projects %}
         {% if projects.projectDepartments.id == projectDepartments.id %}
+
         <div>
-            <h4 style="font-weight: 200; margin:50px 0px ;">Project Name: <span><b>{{projects.title}} - Ahnas,Suhail</b></span></h4>
+            <h4 style="font-weight: 200; margin:50px 0px ;">Project Name: <span><b>{{projects.title}} - </b>Members:
+                {% for projectmembers in projectmembers %}
+                {% if projectmembers.project.id == projects.id%}
+               <b>{{projectmembers.member}}</b>,
+               {% endif %}
+                {% endfor %}
+            </span></h4>
             <table style="width: 100%; margin-top: 20px; padding: 50px;">
                 <tr>
                     <td>Main Highlights/Achievements</td>
@@ -72,6 +79,7 @@
             <hr>
         </div>
     </section>
+
     {% endif %}
     {% endfor %}
     {% endfor %}
